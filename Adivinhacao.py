@@ -1,16 +1,11 @@
 import random
 
 def jogar():
-    
-    print("*************************************")
-    print("**Bem vindo ao jogo de Adivinhação!**")
-    print("*************************************")
+    imprime_mensagem_bemvindo()
 
     numero_secreto = random.randrange(1, 101)
     pontos = 1000
-    print("Qual o nível de dificuldade?")
-    print("(1) Fácil (2) Médio (3) Difícil")
-    nivel = int(input("Defina o nível: "))
+    nivel = escolha_do_nivel()
 
     if (nivel == 1):
         total_tentativas = 20
@@ -29,7 +24,7 @@ def jogar():
             continue
 
         if (numero_secreto == chute):
-            print("Você acertou e fez {} pontos".format(pontos))
+            imprime_mensagem_vencedor(pontos)
             break
         else:
             if (chute > numero_secreto):
@@ -46,6 +41,29 @@ def jogar():
     print("Fim do Jogo!")
 
 
+def imprime_mensagem_bemvindo():
+    print("*************************************")
+    print("**Bem vindo ao jogo de Adivinhação!**")
+    print("*************************************")
+
+def escolha_do_nivel():
+    print("Qual o nível de dificuldade?")
+    print("(1) Fácil (2) Médio (3) Difícil")
+    nivel = int(input("Defina o nível: "))
+    return nivel
+
+def imprime_mensagem_vencedor(pontos):
+    print("Você acertou e fez {} pontos".format(pontos))
+    print("       ___________      ")
+    print("      '._==_==_=_.'     ")
+    print("      .-\\:      /-.    ")
+    print("     | (|:.     |) |    ")
+    print("      '-|:.     |-'     ")
+    print("        \\::.    /      ")
+    print("         '::. .'        ")
+    print("           ) (          ")
+    print("         _.' '._        ")
+    print("        '-------'       ")
+
 if(__name__ == "__main__"):
     jogar()
-
